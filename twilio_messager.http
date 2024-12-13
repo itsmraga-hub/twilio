@@ -1,0 +1,6 @@
+@twilio_messager_HostAddress = http://localhost:5117
+
+GET {{twilio_messager_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
