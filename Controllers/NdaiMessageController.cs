@@ -1,6 +1,7 @@
 ﻿using AfricasTalkingCS;
 using Microsoft.AspNetCore.DataProtection.KeyManagement;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using twilio_messager.Services;
 
 namespace twilio_messager.Controllers
@@ -40,6 +41,9 @@ namespace twilio_messager.Controllers
             {
                 //var sms = gateway.SendMessage(recepients, msg);
                 var sms = gateway.SendMessage(to, message);
+                var sms1 = gateway.SendPremiumMessage(to, message, "shuledrive");
+                Console.WriteLine(JsonConvert.SerializeObject(sms));
+                Console.WriteLine(JsonConvert.SerializeObject(sms1));
                 foreach (var res in sms["SMSMessageData"]["Recipients"])
                 {
                     Console.WriteLine((string)res["number"] + ": ");
